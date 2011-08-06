@@ -1,5 +1,14 @@
 /* UTF-8/RT4 */
 
+lolemipsum = {
+	VERSION:     '1.0',
+	COPYRIGHT:   'Copyright © 2011 José Román.',
+	DEVELOPERS: ['Jósé Román Gálvez <info@josromangalvez.com>',
+	LICENSE:     'Released under the terms of the GNU General Public License v2.',
+	WEB:         'www.joseromangalvez.com'
+};
+
+
 Array.prototype.unique = function() {
 	var a = [];
 	var l = this.length;
