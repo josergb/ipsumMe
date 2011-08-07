@@ -1,11 +1,11 @@
 /* UTF-8/RT4 */
 
 lolemipsum = {
-	VERSION:     '1.0',
-	COPYRIGHT:   'Copyright © 2011 José Román.',
-	DEVELOPERS:  'Jósé Román Gálvez <info@josromangalvez.com>',
-	LICENSE:     'Released under the terms of the GNU General Public License v2.',
-	WEB:         'www.joseromangalvez.com'
+	VERSION		: '1.0',
+	COPYRIGHT	: 'Copyright © 2011 José Román.',
+	DEVELOPERS	: 'Jósé Román Gálvez <info@josromangalvez.com>',
+	LICENSE		: 'Released under the terms of the GNU General Public License v2.',
+	WEB			: 'www.joseromangalvez.com'
 };
 
 
@@ -131,22 +131,30 @@ var insert = function(string, nameWorkDiv, nameWorkDivFather) {
 	};
 };
 
+var createEvent = function(elemento, evento, funcion) {
+	if (elemento.addEventListener) elemento.addEventListener(evento, funcion, false);
+	else elemento.attachEvent("on" + evento, funcion);
+}
+
+var addEvent = function(elementDom, numberElementDom, a) {
+	createEvent(elementDom, "click", function() {
+		if (this.innerHTML == 'No') { 
+			document.userConf.getElementsByTagName('input')[a].checked = true;
+			elementDom.setAttribute('class', 'switchButtonRight switchButtonSelected');
+			document.getElementsByTagName('div')[numberElementDom-1].setAttribute('class', 'switchButtonLeft');
+		} else {
+			document.userConf.getElementsByTagName('input')[a-1].checked = true;
+			elementDom.setAttribute('class', 'switchButtonLeft switchButtonSelected');
+			document.getElementsByTagName('div')[numberElementDom+1].setAttribute('class', 'switchButtonRight');
+		}
+	});
+}
+
 var createSwitches = function() {
-	var createSwitch = document.createElement('div');
-	createSwitch.setAttribute ('class', 'switchButton');
-	var createSwitchLeft = document.createElement('div');
-	if (document.userConf.thisStart[0].checked)
-		createSwitchLeft.setAttribute ('class', 'switchButtonLeft switchButtonLeftSelected');
-	else
-		createSwitchLeft.setAttribute ('class', 'switchButtonLeft');
-	var createSwitchRight = document.createElement('div');
-	if (document.userConf.thisStart[1].checked)
-		createSwitchRight.setAttribute ('class', 'switchButtonRight switchButtonLeftSelected');
-	else
-		createSwitchRight.setAttribute ('class', 'switchButtonRight');
-	var whereCreate = document.getElementById('thisStart');
-	whereCreate.appendChild(createSwitch).appendChild(createSwitchLeft);
-	whereCreate.getElementsByTagName('div')[0].appendChild(createSwitchRight);
+	addEvent(document.getElementsByTagName('div')[1], 1, 1);
+	addEvent(document.getElementsByTagName('div')[2], 2, 1);
+	addEvent(document.getElementsByTagName('div')[4], 4, 3);
+	addEvent(document.getElementsByTagName('div')[5], 5, 3);
 }
 
 var constructorIpsum = function() {

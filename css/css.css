@@ -1,35 +1,35 @@
 .switchButton {
-	border-radius: 3px;
-	padding: 8px 10px;
 	cursor: pointer;
+	display: inline;
 }
+	.switchButton div {
+		padding: 8px 10px;
+		display: inline;
+	}
+
+		.switchButton div:hover {
+			background-color: #997799;
+		}
+
+		.switchButton div:active {
+			background-color: #995599;
+		}
+
+		.switchButton .switchButtonSelected {
+			background-color: #992299;
+		}
 
 	.switchButtonLeft {
 		background-color: #999999;
+		border-radius: 3px 0px 0px 3px;
+		
 	}
-		.switchButtonLeft:hover {
-			background-color: #997799;
-		}
-		.switchButtonLeft:active {
-			background-color: #995599;
-		}
-		.switchButtonLeft:after {
-			content: 'Yes';
-		}
-	
+
 	.switchButtonRight {
 		background-color: #999999;
+		border-radius: 0px 3px 3px 0px;
 	}
-		.switchButtonRight:hover {
-			background-color: #997799;
-		}
-		.switchButtonRight:active {
-			background-color: #995599;
-		}
-		.switchButtonRight:after {
-			content: 'No';
-		}
-	
-	.switchButtonLeftSelected {
-		background-color: #992299;
-	}
+
+input[type="Radio"] {
+	display: none;
+}
