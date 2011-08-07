@@ -76,11 +76,11 @@ var createWord = function(userText, start) {
 };
 
 var uppercase = function(string) {
-	return string.substr(0, 1).toUpperCase() + string.substr(1, string.length).toLowerCase();
+	return string.substr(0, 1).toUpperCase() + string.substr(1, string.length);
 };
 
 var noUppercase = function(string) {
-	return string.substr(0, 1).toLowerCase() + string.substr(1, string.length).toLowerCase();
+	return string.substr(0, 1).toLowerCase() + string.substr(1, string.length);
 };
 
 var isPoint = function(ultimate) {
@@ -136,7 +136,7 @@ var createEvent = function(elemento, evento, funcion) {
 	else elemento.attachEvent("on" + evento, funcion);
 }
 
-var addEvent = function(elementDom, numberElementDom, a) {
+var eventSwicthButton = function(elementDom, numberElementDom, a) {
 	createEvent(elementDom, "click", function() {
 		if (this.innerHTML == 'No') { 
 			document.userConf.getElementsByTagName('input')[a].checked = true;
@@ -148,15 +148,27 @@ var addEvent = function(elementDom, numberElementDom, a) {
 			elementDom.setAttribute('class', 'switchButtonLeft switchButtonSelected');
 		}
 	});
+};
+
+var eventSlide = function() {
+	createEvent(document.getElementsByTagName('div')[7], 'click', function() {
+		var widthTotal = document.getElementsByTagName('div')[6].scrollWidth;
+		var goLeft = 0;
+		var goRight = widthTotal;
+		
+			document.getElementsByTagName('div')[7].setAttribute('style', 'left: ' + (goLeft += .0001) + ', right:' + (goRight -= .0001));
+			document.getElementsByTagName('div')[7].setAttribute('style', 'left: ' + (goLeft -=.0001) + ', right:' + (goRight += .0001));
+	});
 }
 
 var readyPage = function() {
 	document.userConf.getElementsByTagName('span')[0].innerHTML = document.userConf.userText.value
-	addEvent(document.getElementsByTagName('input')[0], 1, 1);
-	addEvent(document.getElementsByTagName('div')[1], 1, 1);
-	addEvent(document.getElementsByTagName('div')[2], 2, 1);
-	addEvent(document.getElementsByTagName('div')[4], 4, 3);
-	addEvent(document.getElementsByTagName('div')[5], 5, 3);
+	eventSwicthButton(document.getElementsByTagName('input')[0], 1, 1);
+	eventSwicthButton(document.getElementsByTagName('div')[1], 1, 1);
+	eventSwicthButton(document.getElementsByTagName('div')[2], 2, 1);
+	eventSwicthButton(document.getElementsByTagName('div')[4], 4, 3);
+	eventSwicthButton(document.getElementsByTagName('div')[5], 5, 3);
+	eventSlide();
 }
 
 var constructorIpsum = function() {
