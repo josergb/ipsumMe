@@ -2,9 +2,9 @@
 <script type="text/javascript" src="js/ipsumMe.js"></script>
 <link rel="stylesheet" href="css/css.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
-<body onLoad="createSwitches();">
+<body onLoad="readyPage();">
 <form name='userConf'>
-	<label for="thisStart" id="thisStart">Empezar por:</label>
+	<label for="thisStart" id="thisStart">Empezar por "<span></span>"</label>
 		<input type="Radio" name="thisStart" value="Yes">
 		<input type="Radio" name="thisStart" value="No">
 		<div class="switchButton">
@@ -19,7 +19,7 @@
 			<div class="switchButtonRight switchButtonSelected">No</div>
 		</div>
 	<input type="text" id='numberRepeat' name="numberRepeat" value="10" />
-	<input type="text" name="userText" value="Hello world!!!" />
+	<input type="text" name="userText" value="Lolem ipsumMe" onKeyUp="document.userConf.getElementsByTagName('span')[0].innerHTML = this.value"/>
 	<select name="typeElement" onChange="document.userConf.typeElement.value == 'head' ? document.userConf.lineHead.setAttribute('style', 'opacity: 1;') :  document.userConf.lineHead.setAttribute('style', 'opacity: 0;')">
 		<option name="typeElement" value="parragraph">Parragraph</option>
 		<option name="typeElement" value="list">List</option>

@@ -1,3 +1,7 @@
+body {
+	font-family: "Helvetica Neue", sans-serif;
+}
+
 .switchButton {
 	cursor: pointer;
 	display: inline;
@@ -5,22 +9,24 @@
 	.switchButton div {
 		padding: 8px 10px;
 		display: inline;
+		text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 2px;
 	}
 
 		.switchButton div:hover {
-			background-color: #997799;
+			background-color: #799;
 		}
 
 		.switchButton div:active {
-			background-color: #995599;
+			background-color: #599;
 		}
 
 		.switchButton .switchButtonSelected {
-			background-color: #992299;
+			background-color: #299;
+			box-shadow: #000 0px 0px 5px 0px inset;
 		}
 
 	.switchButtonLeft {
-		background-color: #999999;
+		background-color: #999;
 		border-radius: 3px 0px 0px 3px;
 		
 	}
@@ -28,6 +34,7 @@
 	.switchButtonRight {
 		background-color: #999999;
 		border-radius: 0px 3px 3px 0px;
+		margin-left: -4px;
 	}
 
 input[type="Radio"] {

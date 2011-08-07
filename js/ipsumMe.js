@@ -140,17 +140,19 @@ var addEvent = function(elementDom, numberElementDom, a) {
 	createEvent(elementDom, "click", function() {
 		if (this.innerHTML == 'No') { 
 			document.userConf.getElementsByTagName('input')[a].checked = true;
-			elementDom.setAttribute('class', 'switchButtonRight switchButtonSelected');
 			document.getElementsByTagName('div')[numberElementDom-1].setAttribute('class', 'switchButtonLeft');
+			elementDom.setAttribute('class', 'switchButtonRight switchButtonSelected');
 		} else {
 			document.userConf.getElementsByTagName('input')[a-1].checked = true;
-			elementDom.setAttribute('class', 'switchButtonLeft switchButtonSelected');
 			document.getElementsByTagName('div')[numberElementDom+1].setAttribute('class', 'switchButtonRight');
+			elementDom.setAttribute('class', 'switchButtonLeft switchButtonSelected');
 		}
 	});
 }
 
-var createSwitches = function() {
+var readyPage = function() {
+	document.userConf.getElementsByTagName('span')[0].innerHTML = document.userConf.userText.value
+	addEvent(document.getElementsByTagName('input')[0], 1, 1);
 	addEvent(document.getElementsByTagName('div')[1], 1, 1);
 	addEvent(document.getElementsByTagName('div')[2], 2, 1);
 	addEvent(document.getElementsByTagName('div')[4], 4, 3);
