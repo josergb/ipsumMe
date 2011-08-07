@@ -1,3 +1,35 @@
-.contenido {
-	opacity: 0;
+.switchButton {
+	border-radius: 3px;
+	padding: 8px 10px;
+	cursor: pointer;
 }
+
+	.switchButtonLeft {
+		background-color: #999999;
+	}
+		.switchButtonLeft:hover {
+			background-color: #997799;
+		}
+		.switchButtonLeft:active {
+			background-color: #995599;
+		}
+		.switchButtonLeft:after {
+			content: 'Yes';
+		}
+	
+	.switchButtonRight {
+		background-color: #999999;
+	}
+		.switchButtonRight:hover {
+			background-color: #997799;
+		}
+		.switchButtonRight:active {
+			background-color: #995599;
+		}
+		.switchButtonRight:after {
+			content: 'No';
+		}
+	
+	.switchButtonLeftSelected {
+		background-color: #992299;
+	}

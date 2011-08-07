@@ -2,9 +2,9 @@
 <script type="text/javascript" src="js/ipsumMe.js"></script>
 <link rel="stylesheet" href="css/css.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
-<body>
+<body onLoad="createSwitches();">
 <form name='userConf'>
-	<label for="thisStart">Empezar por:</label>
+	<label for="thisStart" id="thisStart">Empezar por:</label>
 		<input type="Radio" name="thisStart" value="Yes" checked> Yes
 		<input type="Radio" name="thisStart" value="No"> No   
 	<label for="html">Html:</label>

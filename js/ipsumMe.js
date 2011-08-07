@@ -3,7 +3,7 @@
 lolemipsum = {
 	VERSION:     '1.0',
 	COPYRIGHT:   'Copyright © 2011 José Román.',
-	DEVELOPERS: 'Jósé Román Gálvez <info@josromangalvez.com>',
+	DEVELOPERS:  'Jósé Román Gálvez <info@josromangalvez.com>',
 	LICENSE:     'Released under the terms of the GNU General Public License v2.',
 	WEB:         'www.joseromangalvez.com'
 };
@@ -130,6 +130,24 @@ var insert = function(string, nameWorkDiv, nameWorkDivFather) {
 		addDom (nameWorkDiv, nameWorkDivFather, string);
 	};
 };
+
+var createSwitches = function() {
+	var createSwitch = document.createElement('div');
+	createSwitch.setAttribute ('class', 'switchButton');
+	var createSwitchLeft = document.createElement('div');
+	if (document.userConf.thisStart[0].checked)
+		createSwitchLeft.setAttribute ('class', 'switchButtonLeft switchButtonLeftSelected');
+	else
+		createSwitchLeft.setAttribute ('class', 'switchButtonLeft');
+	var createSwitchRight = document.createElement('div');
+	if (document.userConf.thisStart[1].checked)
+		createSwitchRight.setAttribute ('class', 'switchButtonRight switchButtonLeftSelected');
+	else
+		createSwitchRight.setAttribute ('class', 'switchButtonRight');
+	var whereCreate = document.getElementById('thisStart');
+	whereCreate.appendChild(createSwitch).appendChild(createSwitchLeft);
+	whereCreate.getElementsByTagName('div')[0].appendChild(createSwitchRight);
+}
 
 var constructorIpsum = function() {
 	confOut = {
